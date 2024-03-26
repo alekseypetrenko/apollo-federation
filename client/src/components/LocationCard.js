@@ -1,31 +1,31 @@
-import Button from './Button.js';
-import PropTypes from 'prop-types';
-import ReviewRating from './ReviewRating';
+import Button from "./Button.js";
+import PropTypes from "prop-types";
+import ReviewRating from "./ReviewRating";
 import {
   Box,
   Flex,
   Heading,
   Image,
   Text,
-  usePrefersReducedMotion
-} from '@chakra-ui/react';
-import {Link} from 'react-router-dom';
+  usePrefersReducedMotion,
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function LocationCard({
   id,
   name,
   photo,
   overallRating,
-  reviewsForLocation: reviews = []
+  reviewsForLocation: reviews = [],
 }) {
-  const {comment} = reviews[0] ?? {};
+  const { comment } = reviews[0] ?? {};
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const zoomAnimation = prefersReducedMotion
     ? {}
     : {
-        transform: 'scale(1.1)',
-        opacity: '100%'
+        transform: "scale(1.1)",
+        opacity: "100%",
       };
 
   return (
@@ -33,7 +33,7 @@ export default function LocationCard({
       <Box borderRadius="lg" maxHeight="250px" width="100%" overflow="hidden">
         <Image
           transition="0.3s all ease-in-out"
-          opacity={'95%'}
+          opacity={"95%"}
           _groupHover={zoomAnimation}
           _groupFocus={zoomAnimation}
           src={photo}
@@ -68,5 +68,5 @@ LocationCard.propTypes = {
   name: PropTypes.string,
   photo: PropTypes.string,
   overallRating: PropTypes.number,
-  reviewsForLocation: PropTypes.array
+  reviewsForLocation: PropTypes.array,
 };

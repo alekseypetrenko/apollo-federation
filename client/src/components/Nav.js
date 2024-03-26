@@ -1,6 +1,6 @@
-import {Box, HStack} from '@chakra-ui/react';
-import {Link} from 'react-router-dom';
-import {Logo} from './Logo';
+import { Box, HStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { Logo } from "./Logo";
 
 export default function Nav() {
   return (

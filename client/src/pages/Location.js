@@ -1,8 +1,8 @@
-import ReviewRating from '../components/ReviewRating';
+import ReviewRating from "../components/ReviewRating";
 
-import Spinner from '../components/Spinner';
-import SubmitReview from '../components/SubmitReview';
-import {Error} from './Error';
+import Spinner from "../components/Spinner";
+import SubmitReview from "../components/SubmitReview";
+import { Error } from "./Error";
 import {
   Flex,
   HStack,
@@ -10,10 +10,10 @@ import {
   Image,
   Stack,
   StackDivider,
-  Text
-} from '@chakra-ui/react';
-import {gql, useQuery} from '@apollo/client';
-import {useParams} from 'react-router-dom';
+  Text,
+} from "@chakra-ui/react";
+import { gql, useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 
 export const GET_LOCATION_DETAILS = gql`
   query getLocationDetails($locationId: ID!) {
@@ -33,14 +33,14 @@ export const GET_LOCATION_DETAILS = gql`
 `;
 
 export default function Location() {
-  const {id} = useParams();
+  const { id } = useParams();
 
   const {
     loading,
     error,
-    data = {}
+    data = {},
   } = useQuery(GET_LOCATION_DETAILS, {
-    variables: {locationId: id}
+    variables: { locationId: id },
   });
   if (loading) return <Spinner />;
   if (error) return <Error error={error.message} />;
@@ -49,7 +49,7 @@ export default function Location() {
     description,
     photo,
     reviewsForLocation: reviews,
-    overallRating
+    overallRating,
   } = data?.location || {};
   return (
     <>
@@ -59,7 +59,7 @@ export default function Location() {
             {name}
           </Heading>
           <HStack>
-            <ReviewRating isHalf size={16} rating={overallRating || 0} />{' '}
+            <ReviewRating isHalf size={16} rating={overallRating || 0} />{" "}
             <div>({reviews.length})</div>
           </HStack>
           <Stack direction="column" spacing="6">
@@ -93,7 +93,7 @@ export default function Location() {
                 {reviews.length === 0 ? (
                   <Text>No reviews yet</Text>
                 ) : (
-                  reviews.map(({comment, rating}, i) => (
+                  reviews.map(({ comment, rating }, i) => (
                     <Stack
                       direction="column"
                       spacing="1"

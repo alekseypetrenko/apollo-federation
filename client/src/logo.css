@@ -9,14 +9,13 @@
 
 .star {
   opacity: 0%;
-  fill: #FCFDFF;
+  fill: #fcfdff;
   animation: popAndVanish 3s forwards;
   transform-box: fill-box;
   transform-origin: center;
 }
 
 .s1 {
-  
   animation-delay: 3s;
 }
 
