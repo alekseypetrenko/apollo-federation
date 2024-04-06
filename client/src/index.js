@@ -26,5 +26,5 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </ChakraProvider>,
-  document.getElementById("root"),
+  document.getElementById("root")
 );
